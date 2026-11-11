@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Tarefas</h1>
+      <a href="/swagger" target="_blank">swagger</a>
+    </header>
+
+    <form id="form">
+      <input type="hidden" id="id">
+      <input id="title" placeholder="Título" maxlength="200" required>
+      <textarea id="description" placeholder="Descrição (opcional)" maxlength="2000" rows="2"></textarea>
+      <div class="row">
+        <label>Vencimento <input type="datetime-local" id="dueDate" required></label>
+        <label>Status
+          <select id="status">
+            <option value="Pendente">Pendente</option>
+            <option value="EmAndamento">Em andamento</option>
+            <option value="Concluido">Concluído</option>
+          </select>
+        </label>
+      </div>
+      <div class="row">
+        <button type="submit" id="salvar">Adicionar</button>
+        <button type="button" id="cancelar" class="sec" hidden>Cancelar</button>
+      </div>
+      <p id="erro" class="erro"></p>
+    </form>
+
+    <section class="filtros">
+      <select id="fStatus">
+        <option value="">Todos</option>
+        <option value="Pendente">Pendente</option>
+        <option value="EmAndamento">Em andamento</option>
+        <option value="Concluido">Concluído</option>
+      </select>
+      <label>de <input type="date" id="fDe"></label>
+      <label>até <input type="date" id="fAte"></label>
+      <button type="button" id="limpar" class="sec">Limpar</button>
+    </section>
+
+    <ul id="lista"></ul>
+    <p id="vazio" hidden>Nenhuma tarefa.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

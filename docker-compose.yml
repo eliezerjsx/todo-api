@@ -1,0 +1,15 @@
+services:
+  todo-api:
+    build: .
+    image: todo-api:latest
+    container_name: todo-api
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - todo-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  todo-data:
